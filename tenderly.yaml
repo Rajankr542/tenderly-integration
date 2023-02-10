@@ -1,0 +1,19 @@
+actions:
+  rajankumar/nftlistner:
+    runtime: v1
+    sources: actions
+    specs:
+      safeMint:
+        description: Listing for transfer events
+        function: listner:safeMint
+        trigger:
+          transaction:
+            filters:
+              - eventEmitted:
+                  contract:
+                    address: 0xE0A4541cAAca6dBcCF47876361e8935c90817f5A
+                  name: Transfer
+                network: 5
+            status: 
+            - mined
+          type: transaction
